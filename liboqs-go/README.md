@@ -2,19 +2,26 @@
 
 This is a multistage Dockerfile for building liboqs and setting up liboqs-go.
 
+You can pull the container from Dockerhub with:
+```bash
+docker pull openquantumsafe/go
+```
 You can build the container with:
-```cmd
-docker build -t liboqs-go .
-
+```bash
+docker build -t openquantumsafe/go .
 ```
-You can run the container with:
-```cmd
-docker run liboqs-go
-
+You can start the container and run the tests with:
+```bash
+docker run openquantumsafe/go
 ```
+If you want to mount your current directory into the container and use it as an development environment:
+```bash
+ docker run --rm -it --workdir=/app -v ${PWD}:/app openquantumsafe/go /bin/bash 
+```
+# `Contribution`
 
-We wil provide a docker image in the eomii docker registry in the future.
-
-## 📜 License
-
-Licensed under the MIT License
+If you want to contribute, please make sure that the dockerfile passes all hadolint tests.
+After intalling hadolint, you can check it with:
+```
+docker run --rm -i hadolint/hadolint < Dockerfile
+```
