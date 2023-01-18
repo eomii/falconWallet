@@ -1,6 +1,6 @@
 package checksum
 
-import( 
+import(
         "golang.org/x/crypto/sha3"
         "strings"
 )
@@ -48,5 +48,3 @@ func AddressChecksum(addr string) string { //Takes a string address as input
     }
     return prefix
 }
-
-
