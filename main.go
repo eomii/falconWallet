@@ -105,7 +105,6 @@ setup:
 			message := generateMessage()
 
 			verifier := oqs.Signature{}
-			defer verifier.Clean() // clean up even in case of panic
 
 			if err := verifier.Init(sigName, nil); err != nil {
 				log.Fatal(err)
@@ -118,6 +117,7 @@ setup:
 			}
 
 			fmt.Println("\nValid signature?", isValid)
+			verifier.Clean() // clean up
 
 		case 3:
 			secretKey := signer.ExportSecretKey()
