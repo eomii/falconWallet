@@ -1,4 +1,4 @@
-module mini-wallet
+module falconWallet
 
 go 1.18
 

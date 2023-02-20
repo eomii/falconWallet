@@ -1,6 +1,7 @@
 package main
 
 import (
+	"falconWallet/address/pubeasy"
 	"bufio"
 	"encoding/hex"
 	"fmt"
@@ -53,6 +54,8 @@ setup:
 			}
 			hexPubKey := hex.EncodeToString(pubKey)
 			fmt.Println("Signer public key: ", hexPubKey)
+			address, _ := pubeasy.PubToAddress(pubKey)
+			fmt.Println("Signer Address: ", hex.EncodeToString(address))
 			break setup
 		case 2:
 			println("Address import will be supported in the next update.")
